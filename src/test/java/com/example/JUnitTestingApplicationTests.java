@@ -54,4 +54,10 @@ class JUnitTestingApplicationTests {
 	{
 		assertSame(1,1,"Both the values should be same");
 	}
+	@Test
+	void exceptionTest()
+	{
+		assertThrows(ArithmeticException.class,()-> calculatorService.div(3,0),"Cannot divide by zero");
+
+	}
 }
