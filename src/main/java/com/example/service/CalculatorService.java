@@ -21,4 +21,11 @@ public class CalculatorService {
         }
         return a/b;
     }
+    public boolean checkPositive(int a)
+    {
+        if(a>0){
+            return true;
+        }
+        return false;
+    }
 }

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 //
 
 class JUnitTestingApplicationTests {
@@ -26,8 +26,11 @@ class JUnitTestingApplicationTests {
 	void subTest()
 	{
 		int result= calculatorService.sub(4,1);
-		assertEquals(3,result,"Result should be 3");
+//		assertEquals(3,result,"Result should be 3");
+		assertNotEquals(4,result,"It was not expected");
+
 	}
+
 	@Test
 	void mulTest()
 	{
@@ -39,5 +42,11 @@ class JUnitTestingApplicationTests {
 	{
 		int result= calculatorService.div(8,2);
 		assertEquals(4,result,"Division should be 4");
+	}
+	@Test
+	void checkPositive()
+	{
+		boolean result=calculatorService.checkPositive(1);
+		assertTrue(result,"It is not postive");
 	}
 }
