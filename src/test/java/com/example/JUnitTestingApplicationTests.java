@@ -49,4 +49,9 @@ class JUnitTestingApplicationTests {
 		boolean result=calculatorService.checkPositive(1);
 		assertTrue(result,"It is not postive");
 	}
+	@Test
+	void sameTest()
+	{
+		assertSame(1,1,"Both the values should be same");
+	}
 }
