@@ -10,12 +10,30 @@ import static org.junit.jupiter.api.Assertions.*;
 class JUnitTestingApplicationTests {
 
 
+
 	@Test
 	void contextLoads() {
-		int[] expected={1,2,3,4};
-		int[] actual={1,2,3,4};
-		assertTrue(Arrays.equals(expected,actual),"Arrays are not equal!");
+		Person expected=new Person("Aayu",21);
+		Person actual=new Person("Aayu",25);
+		assertEquals(expected,actual,"No objects are equals");
 
 	}
 
+}
+class Person{
+	private String name;
+	private int age;
+
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if(this==obj) return true;
+		if(obj==null || getClass()!=obj.getClass()) return false;
+		Person p=(Person) obj;
+		return age==p.age && name.equals(p.name);
+	}
 }
