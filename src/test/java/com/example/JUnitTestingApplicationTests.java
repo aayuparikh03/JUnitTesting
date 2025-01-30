@@ -1,5 +1,6 @@
 package com.example;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -7,13 +8,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class JUnitTestingApplicationTests {
-	boolean isEven(int num){
-		return num%2==0;
+	int add(int num1,int num2){
+		return num1+num2;
 	}
 	@org.junit.jupiter.params.ParameterizedTest
-	@ValueSource(ints={2,4,6,8})
-	void testIsEven(int num){
-		assertTrue(isEven(num),"Number should be even only");
+	@CsvSource({"1,2,3","4,5,9","10,20,30"})
+	void testIsEven(int num1,int num2,int expectedSum){
+		assertEquals(expectedSum,add(num1,num2));
 	}
 
 }
