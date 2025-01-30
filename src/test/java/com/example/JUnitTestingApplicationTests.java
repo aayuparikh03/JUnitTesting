@@ -8,6 +8,11 @@ class JUnitTestingApplicationTests {
 
 	@Test
 	void contextLoads() {
+		int[] expected={1,2,3,4};
+		int [] actual={1,2,3,4};
+		assertEq
+
+
 	}
 
 }
