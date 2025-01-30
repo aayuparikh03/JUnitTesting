@@ -3,17 +3,16 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 
+import java.time.Duration;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-class Calculator{
-	public int divide(int a,int b)
+class PerformanceTest{
+	void sampleMethod() throws InterruptedException
 	{
-		if(b==0)
-		{
-			throw new ArithmeticException("Can't divide by zero");
-		}
-		return a/b;
+		Thread.sleep(300);
 	}
+
 
 
 }
@@ -25,10 +24,8 @@ class JUnitTestingApplicationTests {
 
 	@Test
 	void contextLoads() {
-		Calculator calculator=new Calculator();
-		
-		assertThrows(ArithmeticException.class,(()->calculator.divide(3,0)),"Exception is not occured");
-
+		PerformanceTest performanceTest=new PerformanceTest();
+		assertTimeout(Duration.ofMillis(500),()->performanceTest.sampleMethod(),"Method takes too long");
 	}
 
 }
